@@ -21,7 +21,7 @@ Actual version: **A0.1**
 
 ## Actual developing
 * A0.2 -> Added log functions, logging while receiving message (into console)
-
+* A0.5 -> Quiz-Answer classes (tested)
 
 ## TODO
 * quiz raking and pass time
