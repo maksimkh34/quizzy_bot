@@ -1,5 +1,4 @@
 from telegram.ext import ApplicationBuilder
-from colorama import Fore
 from api_token import API_TOKEN
 from syss import log, logl, Type
 import cmd_handlers
