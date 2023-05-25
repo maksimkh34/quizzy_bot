@@ -88,8 +88,8 @@ class Quiz:
     name = ""
     id = ""
 
-    def __init__(self, name,  *_questions):
-        # settings.db.import_quizzes()
+    def __init__(self, name, id_,  *_questions):
+        self.id = id_
         self.id = id_generator.generate_id([])
         self.name = name
         self.questions = list(_questions)

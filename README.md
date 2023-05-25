@@ -23,6 +23,7 @@ Actual version: **A0.1**
 * A0.2 -> Added log functions, logging while receiving message (into console)
 * A0.5 -> Quiz-Answer classes (tested)
 * A0.6 -> Quiz and Question string system (for SQLite)
+* A1 -> SQLite in-out for quiz and question classes
 
 ## TODO
 * quiz raking and pass time

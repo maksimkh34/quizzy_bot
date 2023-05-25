@@ -8,7 +8,7 @@ class Database:
 
     def __init__(self):
         self.db = sqlitewrapper.SqliteCipher(
-            dataBasePath="quiz.db", checkSameThread=True, password=api_token.db_password)
+            dataBasePath="quiz.db", checkSameThread=True, password=const.db_password)
 
     def get_taken_ids(self):
         ids = []
