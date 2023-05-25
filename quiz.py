@@ -1,3 +1,7 @@
+import id_generator
+import settings
+
+
 class Question:
     text = ""
     correct_answers = []
@@ -9,7 +13,6 @@ class Question:
         self.is_rounding = is_rounding
         self.correct_answers = list(_correct_answers)
 
-    # DQue:Y:How many? ;A;B;C;
     def import_question(self, strq):
         if strq.split(":")[0] == "DQue":
             self.correct_answers.clear()
@@ -82,9 +85,17 @@ class Quiz:
     questions = []
     current_question = 0
     completed = False
+    name = ""
+    id = ""
 
-    def __init__(self, *_questions):
+    def __init__(self, name,  *_questions):
+        # settings.db.import_quizzes()
+        self.id = id_generator.generate_id([])
+        self.name = name
         self.questions = list(_questions)
+
+    def get_sqlready_string(self):
+        return [self.name, self.id, self.get_string()]
 
     def add_question(self, q):
         self.questions.append(q)

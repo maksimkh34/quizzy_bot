@@ -1,4 +1,6 @@
 .idea
 __pycache__
 venv
-api_token.py
+const.py
+db_test.py
+quiz_test.py

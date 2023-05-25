@@ -1,5 +1,5 @@
 from telegram.ext import ApplicationBuilder
-from api_token import API_TOKEN
+from const import API_TOKEN
 from syss import log, logl, Type
 import cmd_handlers
 
