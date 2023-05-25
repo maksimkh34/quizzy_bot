@@ -6,3 +6,5 @@ quiz_list = [
     ["id", "TEXT"],
     ["questions", "TEXT"]
 ]
+
+# data file is used for storing vars or objects that can be changed in-dev

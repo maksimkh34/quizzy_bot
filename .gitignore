@@ -4,3 +4,5 @@ venv
 const.py
 db_test.py
 quiz_test.py
+sqlite_test.py
+quiz.db

@@ -12,6 +12,7 @@ special_chars = ''.join(special_chars)
 #       A - any letter
 #       0 - any number or letter
 #       X - any symbol
+# id generator is not used in quiz constructor because it causes repeating (non-random) ids
 
 
 def generate_id(taken_ids):
