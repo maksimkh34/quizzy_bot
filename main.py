@@ -1,16 +1,18 @@
 from telegram.ext import ApplicationBuilder
 from const import API_TOKEN
-from syss import log, logl, Type
+from settings import log
+from syss import Type
 import cmd_handlers
 
-
-logl(Type.important.value, "Started! ")
+log.logl(Type.important.value, "Started! ")
 
 app = ApplicationBuilder().token(API_TOKEN).build()
-logl(Type.done.value, "App built ")
+log.logl(Type.done.value, "App built ")
+
 cmd_handlers.process_handlers(app)
-logl(Type.done.value, "Handlers processed ")
-logl(Type.important.value, "Bot preparation completed. Polling started...  ")
+log.logl(Type.done.value, "Handlers processed ")
+
+log.logl(Type.important.value, "Bot preparation completed. Polling started...  ")
 app.run_polling()
 
-logl(Type.important.value, "Bot closed.  ")
+log.logl(Type.important.value, "Polling closed.  ")

@@ -5,10 +5,12 @@ import settings
 class Question:
     text = ""
     correct_answers = []
+    creator = ""
     is_rounding = False
     correct = False
 
     def __init__(self, _text, is_rounding, *_correct_answers):
+
         self.text = _text
         self.is_rounding = is_rounding
         self.correct_answers = list(_correct_answers)
@@ -88,14 +90,21 @@ class Quiz:
     name = ""
     id = ""
 
-    def __init__(self, name, id_,  *_questions):
+    def __init__(self, name: str, id_: str, creator: str, *_questions: Question):
+        self.creator = creator
         self.id = id_
         self.id = id_generator.generate_id([])
         self.name = name
         self.questions = list(_questions)
 
     def get_sqlready_string(self) -> []:
-        return [self.name, self.id, self.get_string()]
+        return [self.name, self.id, self.get_string(), self.creator]
+
+    def import_quiz(self, sql_data: []) -> None:
+        self.name = sql_data[0]
+        self.id = sql_data[1]
+        self.import_answers(sql_data[2])
+        self.creator = sql_data[3]
 
     def add_question(self, q) -> None:
         self.questions.append(q)

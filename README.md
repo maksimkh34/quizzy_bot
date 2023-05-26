@@ -24,6 +24,7 @@ Actual version: **A0.1**
 * A0.5 -> Quiz-Answer classes (tested)
 * A0.6 -> Quiz and Question string system (for SQLite)
 * A1 -> SQLite in-out for quiz and question classes
+* A1:1 -> SQLite users system
 
 ## TODO
 * quiz raking and pass time

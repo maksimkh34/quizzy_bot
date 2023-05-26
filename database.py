@@ -6,13 +6,16 @@ import data
 class Database:
     db = None
 
-    def __init__(self):
+    def __init__(self, path, password):
         self.db = sqlitewrapper.SqliteCipher(
-            dataBasePath="quiz.db", checkSameThread=True, password=const.db_password)
+            dataBasePath=path, checkSameThread=True, password=password)
 
     def get_taken_ids(self):
         ids = []
-        quizzes = self.import_quizzes()[1:]
+        try:
+            quizzes = self.import_quizzes()[1:]
+        except ValueError:
+            return []
         for quiz in quizzes:
             ids.append(quiz[1])
         return ids
@@ -42,3 +45,19 @@ class Database:
         for quiz in quizzes:
             if quiz[2] == id_:
                 self.db.deleteDataInTable(data.QUIZ_TABLE_NAME, quiz[0], commit=True, updateId=True, raiseError=True)
+
+    # user database functional
+
+    def init_db_usr(self):
+        self.db.createTable(data.USR_TABLE_NAME, data.usr_list, makeSecure=True)
+
+    def u_insert(self, user_id: str):
+        self.db.insertIntoTable(data.USR_TABLE_NAME, [user_id])
+
+    def u_get_list(self):
+        return self.db.getDataFromTable(data.USR_TABLE_NAME)
+
+    def u_clear(self):
+        for i in range(len(self.u_get_list()[1])):
+            self.db.deleteDataInTable(data.USR_TABLE_NAME, i, commit=True, updateId=False, raiseError=True)
+            i += 1
